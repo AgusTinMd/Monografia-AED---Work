@@ -6,10 +6,35 @@
 #include <conio.h>
 #include <string.h>
 
+void menulogin();
+void menurecepcionista();
+void menudoctor();
+
 int main()
 {
 
 
-  /* code */
+
   return 0;
+}
+
+
+void menulogin()
+{
+
+
+}
+
+
+void menurecepcionista()
+{
+
+
+}
+
+void menudoctor()
+{
+
+
+  
 }
