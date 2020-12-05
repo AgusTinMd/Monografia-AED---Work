@@ -1,3 +1,4 @@
+/*
 Implementación de Módulos
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -12,8 +13,8 @@ Módulo Recepción:
 Este módulo satisface las necesidades del personal que asiste a los veterinarios en la atención al público. Desde aquí se hace ingreso de las mascotas, y la registración de los turnos.
 Esta aplicación debe permitir obtener un informe de las mascotas atendidos en determinada fecha por un determinado veterinario.
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
- 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Módulo Administración:
 La gerencia del centro veterinario es la encargada de realizar el alta de los veterinarios que trabajan en la institución, así como también de los empleados que realizan la registración de los turnos y mascotas.
 Es el área encargada desea visualizar las atenciones realizadas por los profesionales según las en el mes.
@@ -66,7 +67,7 @@ d. Tener como máximo 3 dígitos.
 Ejemplos de nombres de usuario incorrectos: AbC123 (no cumple con b), pTS!1234 (no cumple con d), g178Mci (no cumple con c), mARtin123gomez (tiene mas de 10 caracteres).
 
 Ejemplos de nombres de usuario correctos: mARtin12, jo97!AR.
-Contraseña: 
+Contraseña:
 Su conformación no podrá darse al azar, sino que deberá respetar lo siguiente:
 
 a. Deberá contener al menos una letra mayúscula, una letra minúscula y un número.
@@ -129,3 +130,4 @@ Fecha -- fecha
 DNI_Dueño -- int
 Detalle de Atencion -- Char[380]
 -------------------------
+*/
