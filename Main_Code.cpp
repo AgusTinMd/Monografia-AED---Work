@@ -77,9 +77,49 @@ struct turno
   char detalleatencion[380];
 };
 
+
+
+
+
+
 int main()
 {
+  //creacion de archivos para la primera vez, es una comprobacion
+  FILE *user;
+	archivo=fopen("usuarios.dat","a+b");
+	if (user==NULL)
+	{
+		printf ("Error al crear o abrir el archivo de usuarios");
+		exit(1);
+	}
+	fclose(usuario);
 
+  FILE *admi;
+	archivo=fopen("administracion.dat","a+b");
+	if (admi==NULL)
+	{
+		printf ("Error al crear o abrir el archivo de administracion");
+		exit(1);
+	}
+	fclose(admi);
+
+  FILE *asist;
+  archivo=fopen("asistente.dat","a+b");
+  if (user==NULL)
+  {
+    printf ("Error al crear o abrir el archivo asistentes");
+    exit(1);
+  }
+  fclose(asist);
+
+  FILE *veterinarios;
+	archivo=fopen("veterinarios.dat","a+b");
+	if (user==NULL)
+	{
+		printf ("Error al crear o abrir el archivo veterinarios");
+		exit(1);
+	}
+	fclose(veterinarios);
 
 
 
