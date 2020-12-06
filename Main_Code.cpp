@@ -7,9 +7,10 @@
 #include <string.h>
 
 void menulogin();
-void menurecepcionista();
-void menudoctor();
-void menuadministracion();
+void modulorecepcionista();
+void modulodoctor();
+void moduloadministracion();
+void loguin();
 
 
 struct fecha
@@ -23,6 +24,7 @@ struct usuario //struct para logueo de usuarios
 {
   user char[20];
   pasword char[20];
+  int lvl;
 };
 
 
@@ -86,7 +88,7 @@ int main()
 {
   //creacion de archivos para la primera vez, es una comprobacion
   FILE *user;
-	archivo=fopen("usuarios.dat","a+b");
+	user=fopen("usuarios.dat","a+b");
 	if (user==NULL)
 	{
 		printf ("Error al crear o abrir el archivo de usuarios");
@@ -95,7 +97,7 @@ int main()
 	fclose(usuario);
 
   FILE *admi;
-	archivo=fopen("administracion.dat","a+b");
+	admi=fopen("administracion.dat","a+b");
 	if (admi==NULL)
 	{
 		printf ("Error al crear o abrir el archivo de administracion");
@@ -104,7 +106,7 @@ int main()
 	fclose(admi);
 
   FILE *asist;
-  archivo=fopen("asistente.dat","a+b");
+  asist=fopen("asistente.dat","a+b");
   if (user==NULL)
   {
     printf ("Error al crear o abrir el archivo asistentes");
@@ -113,7 +115,7 @@ int main()
   fclose(asist);
 
   FILE *veterinarios;
-	archivo=fopen("veterinarios.dat","a+b");
+	veterinarios=fopen("veterinarios.dat","a+b");
 	if (user==NULL)
 	{
 		printf ("Error al crear o abrir el archivo veterinarios");
@@ -121,6 +123,10 @@ int main()
 	}
 	fclose(veterinarios);
 
+   /* Empiezan las funciones, el login primero, decidi hacerlo todo en la funcion para
+   evitar tener muchas cosa en el main */
+
+   menulogin();
 
 
 
@@ -130,17 +136,125 @@ int main()
 
 void menulogin()
 {
-prinf("Login");
-printf("---------------------");
-printf("1. Iniciar sesion");
-printf("2. Registrarse"); //opcion para la primera vez nada mas
-printf("3. Salir");
-printf("\n\nIngrese una opcion: ");
+
+ int opc;
+
+
+  do
+  {
+    prinf("Login");
+    printf("---------------------");
+    printf("1. Iniciar sesion");
+    printf("2. Registrarse"); //opcion para la primera vez nada mas
+    printf("3. Salir");
+    printf("\n\nIngrese una opcion: ");
+    scanf("%d",&opc);
+
+    if(opc>3 || opc<1)
+    {
+
+     printf("Valor %d invalido, intente nuevamente con otro valor",opc);
+      break;
+    }
+
+      switch(opc)
+      {
+        case 1:
+        {
+          system("cls");
+          loguin();
+          break;
+        }
+        case 2:
+        {
+
+          break;
+        }
+        case 3:
+        {
+
+          break;
+        }
+      }
+
+
+  } while(opc!=3);
+
+
+}
+
+void loguin()
+{
+
+usuario loguer;
+usuario aux;
+bool bandera=0;
+int opc;
+
+FILE *user;
+user=fopen("usuarios.dat","a+b");
+
+if(user==NULL)
+{
+   printf("\nNo se puedo abrir el archivo de usuarios");
+}
+
+do
+{
+
+   printf("Usuario: ");
+   gets(loguer.user);
+   printf("\nContraseña: ");
+   gets(loguer.pasword);
+
+
+   fread(&aux,sizeof(usuario),1,user);
+
+
+      while(!feof(user) /*|| bandera=1*/ )
+      {
+
+        if(loguer.user==aux.user && loguer.pasword==aux.pasword)
+        {
+          //bandera=1;
+             if(aux.lvl==1)
+             {
+
+                  moduloadministracion();
+
+             }
+             if(aux.lvl==2)
+             {
+
+                  modulodoctor();
+
+             }
+             if(aux.lvl==3)
+             {
+
+                  modulorecepcionista();
+
+             }
+
+
+         break;
+        }
+
+            fread(&aux,sizeof(usuario),1,user);
+
+      }
+
+      printf("\nUsuario y contraseña no encontrados");
+      printf("Desea intentar nuevamente?\nIngrese 1 para SI y 0 para NO");
+      printf("Opcion: ");
+      scanf("%d",&opc);
+
+}while(opc!=0);
 
 }
 
 
-void menurecepcionista()
+void modulorecepcionista()
 {
 
 printf("");
@@ -149,7 +263,7 @@ printf("");
 
 }
 
-void menudoctor()
+void modulodoctor()
 {
 
 printf("");
@@ -158,7 +272,7 @@ printf("");
 
 }
 
-void menuadministracion()
+void moduloadministracion()
 {
 
   printf("");
