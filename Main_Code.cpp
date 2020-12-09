@@ -6,6 +6,7 @@
 #include <conio.h>
 #include <string.h>
 
+void comprobacion(); //comprobacion para los archivos
 void menulogin();
 void modulorecepcionista();
 void modulodoctor();
@@ -86,42 +87,9 @@ struct turno
 
 int main()
 {
-  //creacion de archivos para la primera vez, es una comprobacion
-  FILE *user;
-	user=fopen("usuarios.dat","a+b");
-	if (user==NULL)
-	{
-		printf ("Error al crear o abrir el archivo de usuarios");
-		exit(1);
-	}
-	fclose(usuario);
 
-  FILE *admi;
-	admi=fopen("administracion.dat","a+b");
-	if (admi==NULL)
-	{
-		printf ("Error al crear o abrir el archivo de administracion");
-		exit(1);
-	}
-	fclose(admi);
 
-  FILE *asist;
-  asist=fopen("asistente.dat","a+b");
-  if (user==NULL)
-  {
-    printf ("Error al crear o abrir el archivo asistentes");
-    exit(1);
-  }
-  fclose(asist);
-
-  FILE *veterinarios;
-	veterinarios=fopen("veterinarios.dat","a+b");
-	if (user==NULL)
-	{
-		printf ("Error al crear o abrir el archivo veterinarios");
-		exit(1);
-	}
-	fclose(veterinarios);
+   comprobacion();
 
    /* Empiezan las funciones, el login primero, decidi hacerlo todo en la funcion para
    evitar tener muchas cosa en el main */
@@ -278,5 +246,46 @@ void moduloadministracion()
   printf("");
   printf("");
   printf("");
+
+}
+
+void comprobacion()
+{
+  //creacion de archivos para la primera vez, es una comprobacion
+  FILE *user;
+	user=fopen("usuarios.dat","a+b");
+	if (user==NULL)
+	{
+		printf ("Error al crear o abrir el archivo de usuarios");
+		exit(1);
+	}
+	fclose(usuario);
+
+  FILE *admi;
+	admi=fopen("administracion.dat","a+b");
+	if (admi==NULL)
+	{
+		printf ("Error al crear o abrir el archivo de administracion");
+		exit(1);
+	}
+	fclose(admi);
+
+  FILE *asist;
+  asist=fopen("asistente.dat","a+b");
+  if (user==NULL)
+  {
+    printf ("Error al crear o abrir el archivo asistentes");
+    exit(1);
+  }
+  fclose(asist);
+
+  FILE *veterinarios;
+	veterinarios=fopen("veterinarios.dat","a+b");
+	if (user==NULL)
+	{
+		printf ("Error al crear o abrir el archivo veterinarios");
+		exit(1);
+	}
+	fclose(veterinarios);
 
 }
